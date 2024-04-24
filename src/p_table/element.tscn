@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4o2xmg1nph1u"]
+
+[ext_resource type="Script" path="res://p_table/element.gd" id="1_x774s"]
+[ext_resource type="Theme" uid="uid://cwmvssyycl315" path="res://theme/periodic_table.tres" id="2_6oswq"]
+
+[node name="Element" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_x774s")
+
+[node name="Panel" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(65, 75)
+layout_mode = 2
+color = Color(0.273584, 0.63463, 0.82857, 1)
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.5
+offset_right = 11.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_6oswq")
+text = "He"
+horizontal_alignment = 1
+vertical_alignment = 1
