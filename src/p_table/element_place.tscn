@@ -35,12 +35,12 @@ layout_mode = 2
 texture = SubResource("GradientTexture2D_11c15")
 expand_mode = 3
 
-[node name="Control" type="Control" parent="."]
+[node name="CheckIncoming" type="Control" parent="."]
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 2
 
-[node name="Node2D" type="Area2D" parent="Control"]
+[node name="IncomingArea" type="Area2D" parent="CheckIncoming"]
 position = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckIncoming/IncomingArea"]
 shape = SubResource("RectangleShape2D_rkx4e")

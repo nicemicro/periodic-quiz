@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7lil0i2q12bx"]
+
+[ext_resource type="PackedScene" uid="uid://cqj7e87qg21iy" path="res://p_table/p_table.tscn" id="1_tn1os"]
+[ext_resource type="PackedScene" uid="uid://c4o2xmg1nph1u" path="res://p_table/element.tscn" id="2_hopqo"]
+[ext_resource type="PackedScene" uid="uid://d457mukcsa8n" path="res://p_table/element_place.tscn" id="2_y80xu"]
+
+[node name="MatchGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PTable" parent="." instance=ExtResource("1_tn1os")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GamePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 20.0
+offset_right = 730.0
+offset_bottom = 230.0
+
+[node name="Columns" type="HBoxContainer" parent="GamePanel"]
+layout_mode = 2
+
+[node name="Storage" type="VBoxContainer" parent="GamePanel/Columns"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.86
+
+[node name="Label" type="Label" parent="GamePanel/Columns/Storage"]
+layout_mode = 2
+text = "Temporary storage"
+horizontal_alignment = 1
+
+[node name="StoragePoints" type="HBoxContainer" parent="GamePanel/Columns/Storage"]
+layout_mode = 2
+
+[node name="Element" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="Element2" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="Element3" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="Spawn" type="VBoxContainer" parent="GamePanel/Columns"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GamePanel/Columns/Spawn"]
+layout_mode = 2
+text = "New element"
+horizontal_alignment = 1
+
+[node name="Element" parent="GamePanel/Columns/Spawn" instance=ExtResource("2_hopqo")]
+layout_mode = 2
+symbol = "Se"
+
+[node name="ColorRect2" type="ColorRect" parent="GamePanel/Columns"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="HintBox" type="VBoxContainer" parent="GamePanel/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="GamePanel/Columns/HintBox"]
+layout_mode = 2
+text = "Hints"
+horizontal_alignment = 1
