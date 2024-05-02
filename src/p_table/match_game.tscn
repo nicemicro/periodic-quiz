@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7lil0i2q12bx"]
 
+[ext_resource type="Script" path="res://p_table/match_game.gd" id="1_hmqyt"]
 [ext_resource type="PackedScene" uid="uid://cqj7e87qg21iy" path="res://p_table/p_table.tscn" id="1_tn1os"]
-[ext_resource type="PackedScene" uid="uid://c4o2xmg1nph1u" path="res://p_table/element.tscn" id="2_hopqo"]
 [ext_resource type="PackedScene" uid="uid://d457mukcsa8n" path="res://p_table/element_place.tscn" id="2_y80xu"]
 
 [node name="MatchGame" type="Control"]
@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_hmqyt")
 
 [node name="PTable" parent="." instance=ExtResource("1_tn1os")]
 layout_mode = 0
@@ -46,13 +47,13 @@ horizontal_alignment = 1
 [node name="StoragePoints" type="HBoxContainer" parent="GamePanel/Columns/Storage"]
 layout_mode = 2
 
-[node name="Element" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="ElementStore1" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
 layout_mode = 2
 
-[node name="Element2" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="ElementStore2" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
 layout_mode = 2
 
-[node name="Element3" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="ElementStore3" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="GamePanel/Columns"]
@@ -68,9 +69,8 @@ layout_mode = 2
 text = "New element"
 horizontal_alignment = 1
 
-[node name="Element" parent="GamePanel/Columns/Spawn" instance=ExtResource("2_hopqo")]
+[node name="ElementPlace" type="CenterContainer" parent="GamePanel/Columns/Spawn"]
 layout_mode = 2
-symbol = "Se"
 
 [node name="ColorRect2" type="ColorRect" parent="GamePanel/Columns"]
 custom_minimum_size = Vector2(2, 0)

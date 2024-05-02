@@ -36,4 +36,6 @@ func _ready():
 				add_child(instance)
 				col_num += 1
 			el_now = not el_now
-		
+
+func  elementDropped(elementNode):
+	pass

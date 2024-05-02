@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d457mukcsa8n"]
+[gd_scene load_steps=7 format=3 uid="uid://d457mukcsa8n"]
+
+[ext_resource type="Script" path="res://p_table/element_place.gd" id="1_lnilb"]
 
 [sub_resource type="Gradient" id="Gradient_ntga4"]
 offsets = PackedFloat32Array(0.201299, 0.331169, 0.448052, 0.519481, 0.707792)
@@ -11,28 +13,45 @@ height = 75
 fill_from = Vector2(0.424063, 0.333333)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_7u84y"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.811765, 0.823529, 0.392157, 0.447059)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ds4x"]
+gradient = SubResource("Gradient_7u84y")
+width = 65
+height = 75
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rkx4e"]
 size = Vector2(55, 65)
 
-[node name="Element" type="CenterContainer"]
+[node name="ElementPlacer" type="CenterContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -672.5
-offset_top = -392.5
-offset_right = -607.5
-offset_bottom = -317.5
+offset_left = -32.5
+offset_top = -37.5
+offset_right = 32.5
+offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_lnilb")
 
 [node name="Panel" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(65, 75)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_11c15")
+expand_mode = 3
+
+[node name="PanelActive" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(65, 75)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_2ds4x")
 expand_mode = 3
 
 [node name="CheckIncoming" type="Control" parent="."]
@@ -44,3 +63,9 @@ position = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CheckIncoming/IncomingArea"]
 shape = SubResource("RectangleShape2D_rkx4e")
+
+[node name="ElementParent" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
