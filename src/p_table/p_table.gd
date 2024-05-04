@@ -18,6 +18,7 @@ const PTABLE = [
 ]
 
 var element_places: Array = []
+var activeStorage: CenterContainer = null
 
 func _ready():
 	var el_now: bool = true
@@ -31,6 +32,8 @@ func _ready():
 				if el_now:
 					instance = load(EL_PLACE_PATH).instantiate()
 					element_places.append(instance)
+					instance.activate.connect(storageActivated.bind(instance))
+					instance.deactivate.connect(storageDeactivated.bind(instance))
 				else:
 					instance = load(EMPTY_PATH).instantiate()
 				add_child(instance)
@@ -38,4 +41,13 @@ func _ready():
 			el_now = not el_now
 
 func  elementDropped(elementNode):
-	pass
+	activeStorage.addElement(elementNode)
+
+func storageActivated(storageNode):
+	activeStorage = storageNode
+
+func storageDeactivated(storageNode):
+	if activeStorage == storageNode:
+		activeStorage = null
+	else:
+		assert(false, "Something went wrong")
