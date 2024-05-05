@@ -40,8 +40,11 @@ func _ready():
 				col_num += 1
 			el_now = not el_now
 
-func  elementDropped(elementNode):
+func  elementDropped(elementNode) -> bool:
+	if activeStorage == null:
+		return false
 	activeStorage.addElement(elementNode)
+	return true
 
 func storageActivated(storageNode):
 	activeStorage = storageNode

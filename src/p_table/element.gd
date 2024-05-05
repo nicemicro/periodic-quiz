@@ -1,6 +1,8 @@
 extends CenterContainer
 
-@export var symbol: String
+@export var _symbol: String = "He"
+
+var _elementLoc: int = -1
 
 @onready var symbolLabel: Label = $Panel/Label
 @onready var mouseGhost: Sprite2D = $MouseMover
@@ -12,8 +14,12 @@ var ghosting: bool = false
 signal dropped
 
 func _ready():
-	symbolLabel.text = symbol
-	ghostLabel.text = symbol
+	symbolLabel.text = _symbol
+	ghostLabel.text = _symbol
+
+func setLoc(elementLoc):
+	assert(_elementLoc == -1, "Shouldn't set element location again once set")
+	_elementLoc = elementLoc
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton:

@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://demxfooudcg4y"]
+
+[ext_resource type="Script" path="res://p_table/all_elements.gd" id="1_34n8i"]
+[ext_resource type="PackedScene" uid="uid://c4o2xmg1nph1u" path="res://p_table/element.tscn" id="1_rggk7"]
+
+[node name="AllElements" type="GridContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 18
+script = ExtResource("1_34n8i")
+
+[node name="H" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "H"
+
+[node name="He" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+
+[node name="Li" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Li"
+
+[node name="Be" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Be"
+
+[node name="B" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "B"
+
+[node name="C" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "C"
+
+[node name="N" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "N"
+
+[node name="O" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "O"
+
+[node name="F" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "F"
+
+[node name="Ne" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ne"
