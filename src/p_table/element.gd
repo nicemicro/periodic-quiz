@@ -4,7 +4,8 @@ extends CenterContainer
 
 var _elementLoc: int = -1
 
-@onready var symbolLabel: Label = $Panel/Label
+@onready var colorBg: ColorRect = $ColorPanel
+@onready var symbolLabel: Label = $ColorPanel/Label
 @onready var mouseGhost: Sprite2D = $MouseMover
 @onready var ghostLabel: Label = $MouseMover/Label2
 
@@ -23,6 +24,9 @@ func setLoc(elementLoc):
 
 func getLoc() -> int:
 	return _elementLoc
+
+func setIncorrect():
+	colorBg.color = Color(1.0, 0.3, 0.3)
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton:

@@ -51,6 +51,8 @@ func checkElements() -> int:
 			continue
 		if elementPlace.getElement().getLoc() == index:
 			correct += 1
+		else:
+			elementPlace.getElement().setIncorrect()
 	return correct
 
 func  elementDropped(elementNode) -> bool:

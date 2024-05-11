@@ -1,10 +1,15 @@
 extends Control
 
-@onready var spawningPlace: CenterContainer = $GamePanel/Columns/Spawn/ElementPlace
+@onready var spawningPlace: CenterContainer = %NewElementPlace
 @onready var pTable = $PTable
 @onready var allElements = $AllElements
-@onready var storagePoints = $GamePanel/Columns/Storage/StoragePoints
+@onready var storagePoints = %StoragePoints
+@onready var deductionLabel = %Deduction
+@onready var gameBlocker = $Blocker
+@onready var scoreLabel = %Score
+@onready var matchesLabel = %Matches
 var activeStorage: CenterContainer = null
+var score: int = 0
 
 func _ready():
 	addElement()
@@ -21,6 +26,16 @@ func addElement():
 
 func elementDropped(elementNode):
 	var toAdd: bool = (elementNode in spawningPlace.get_children())
+	#Check if the element is moved from the temporary place or spawn point
+	if not elementNode in (spawningPlace.get_children()):
+		var inStorage: bool = false
+		for child in storagePoints.get_children():
+			if child.getElement() == elementNode:
+				inStorage = true
+				break
+		if not inStorage:
+			score -= 50
+	#Check whether the element is moving to storage or to the periodic table
 	if activeStorage == null:
 		var result: bool = pTable.elementDropped(elementNode)
 		if not result:
@@ -29,13 +44,18 @@ func elementDropped(elementNode):
 		activeStorage.addElement(elementNode)
 	if toAdd:
 		addElement()
+	#Check whether the temporary storage is empty & we're out of elements
+	#to see if the game is over or not.
 	var allEmpty: bool = true
 	if len(spawningPlace.get_children()) == 0:
 		for storage in storagePoints.get_children():
 			if storage.getElement() != null:
 				allEmpty = false
+				break
 		if allEmpty:
 			finishGame()
+	#update deductions
+	deductionLabel.text = str(score)
 
 func storageActivated(storageNode):
 	activeStorage = storageNode
@@ -47,4 +67,8 @@ func storageDeactivated(storageNode):
 		assert(false, "Something went wrong")
 
 func finishGame():
-	print_debug(pTable.checkElements())
+	var matchedElements: int = pTable.checkElements()
+	score += matchedElements * 100
+	gameBlocker.show()
+	scoreLabel.text = str(score)
+	matchesLabel.text = str(matchedElements)

@@ -1,4 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://cwmvssyycl315"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cwmvssyycl315"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_240im"]
+bg_color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [resource]
-Label/font_sizes/font_size = 32
+Label/font_sizes/font_size = 18
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_240im")

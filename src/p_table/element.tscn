@@ -28,13 +28,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_x774s")
 
-[node name="Panel" type="ColorRect" parent="."]
+[node name="ColorPanel" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(65, 75)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.273584, 0.63463, 0.82857, 1)
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="ColorPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -48,6 +48,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_6oswq")
+theme_override_font_sizes/font_size = 44
 text = "He"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -71,6 +72,7 @@ offset_bottom = 22.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_6oswq")
+theme_override_font_sizes/font_size = 44
 text = "He"
 horizontal_alignment = 1
 vertical_alignment = 1

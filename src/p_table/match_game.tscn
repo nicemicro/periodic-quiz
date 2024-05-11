@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7lil0i2q12bx"]
+[gd_scene load_steps=6 format=3 uid="uid://b7lil0i2q12bx"]
 
+[ext_resource type="Theme" uid="uid://cwmvssyycl315" path="res://theme/periodic_table.tres" id="1_axefy"]
 [ext_resource type="Script" path="res://p_table/match_game.gd" id="1_hmqyt"]
 [ext_resource type="PackedScene" uid="uid://cqj7e87qg21iy" path="res://p_table/p_table.tscn" id="1_tn1os"]
 [ext_resource type="PackedScene" uid="uid://demxfooudcg4y" path="res://p_table/all_elements.tscn" id="2_02f2v"]
@@ -10,12 +11,11 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1280.0
-offset_bottom = -720.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_axefy")
 script = ExtResource("1_hmqyt")
 
 [node name="AllElements" parent="." instance=ExtResource("2_02f2v")]
@@ -59,7 +59,9 @@ text = "Temporary storage"
 horizontal_alignment = 1
 
 [node name="StoragePoints" type="HBoxContainer" parent="GamePanel/Columns/Storage"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="ElementStore1" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
 layout_mode = 2
@@ -69,6 +71,24 @@ layout_mode = 2
 
 [node name="ElementStore3" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
 layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns/Storage"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="DeductionText" type="Label" parent="GamePanel/Columns/Storage"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Deductions"
+horizontal_alignment = 1
+
+[node name="Deduction" type="Label" parent="GamePanel/Columns/Storage"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="GamePanel/Columns"]
 custom_minimum_size = Vector2(2, 0)
@@ -83,7 +103,8 @@ layout_mode = 2
 text = "New element"
 horizontal_alignment = 1
 
-[node name="ElementPlace" type="CenterContainer" parent="GamePanel/Columns/Spawn"]
+[node name="NewElementPlace" type="CenterContainer" parent="GamePanel/Columns/Spawn"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ColorRect2" type="ColorRect" parent="GamePanel/Columns"]
@@ -99,3 +120,62 @@ size_flags_horizontal = 3
 layout_mode = 2
 text = "Hints"
 horizontal_alignment = 1
+
+[node name="Blocker" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.407843, 0.407843, 0.407843, 0.384314)
+
+[node name="ResultBox" type="PanelContainer" parent="Blocker"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 25.0
+offset_right = 150.0
+grow_horizontal = 2
+
+[node name="HeaderFooter" type="VBoxContainer" parent="Blocker/ResultBox"]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="Blocker/ResultBox/HeaderFooter"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 49
+text = "0"
+horizontal_alignment = 1
+
+[node name="ScoreText" type="Label" parent="Blocker/ResultBox/HeaderFooter"]
+layout_mode = 2
+text = "Total score"
+horizontal_alignment = 1
+
+[node name="Columns" type="HBoxContainer" parent="Blocker/ResultBox/HeaderFooter"]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="Blocker/ResultBox/HeaderFooter/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MatchesText" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Left"]
+layout_mode = 2
+text = "Matches:"
+horizontal_alignment = 2
+
+[node name="Right" type="VBoxContainer" parent="Blocker/ResultBox/HeaderFooter/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Matches" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
