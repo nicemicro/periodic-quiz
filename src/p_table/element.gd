@@ -21,6 +21,9 @@ func setLoc(elementLoc):
 	assert(_elementLoc == -1, "Shouldn't set element location again once set")
 	_elementLoc = elementLoc
 
+func getLoc() -> int:
+	return _elementLoc
+
 func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:

@@ -14,6 +14,9 @@ func addElement(newElement: CenterContainer):
 	newElement.reparent(elementParent)
 	deactivation()
 
+func getElement() -> CenterContainer:
+	return elementParent.get_child(0)
+
 func _on_mouse_entered():
 	if active or elementParent.get_child_count() > 0:
 		return

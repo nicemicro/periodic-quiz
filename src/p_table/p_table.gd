@@ -17,7 +17,7 @@ const PTABLE = [
 	[0, 3, 15]
 ]
 
-var element_places: Array = []
+var elementPlaces: Array = []
 var activeStorage: CenterContainer = null
 
 func _ready():
@@ -31,7 +31,7 @@ func _ready():
 			for num in range(cols):
 				if el_now:
 					instance = load(EL_PLACE_PATH).instantiate()
-					element_places.append(instance)
+					elementPlaces.append(instance)
 					instance.activate.connect(storageActivated.bind(instance))
 					instance.deactivate.connect(storageDeactivated.bind(instance))
 				else:
@@ -39,6 +39,19 @@ func _ready():
 				add_child(instance)
 				col_num += 1
 			el_now = not el_now
+
+func checkElements() -> int:
+	var correct: int = 0
+	var index: int = -1
+	for elementPlace in elementPlaces:
+		if elementPlace == null:
+			continue
+		index += 1
+		if elementPlace.getElement() == null:
+			continue
+		if elementPlace.getElement().getLoc() == index:
+			correct += 1
+	return correct
 
 func  elementDropped(elementNode) -> bool:
 	if activeStorage == null:

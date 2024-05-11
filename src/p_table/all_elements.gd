@@ -11,6 +11,8 @@ func _ready():
 		counter += 1
 
 func giveRandomElement() -> Control:
+	if len(elementList) == 0:
+		return null
 	var chosenNum: int = randi() % len(elementList)
 	var chosenInd: int = elementList.keys()[chosenNum]
 	var chosenEl: Control = elementList[chosenInd]
