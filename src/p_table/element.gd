@@ -1,6 +1,7 @@
 extends CenterContainer
 
 @export var _symbol: String = "He"
+@export var _relativeAtomicMass: float = 4.00
 
 var _elementLoc: int = -1
 
@@ -11,12 +12,28 @@ var _elementLoc: int = -1
 
 var clickPos: Vector2 = Vector2(0, 0)
 var ghosting: bool = false
+var revealedHints: Dictionary = {}
 
 signal dropped
 
 func _ready():
 	symbolLabel.text = _symbol
 	ghostLabel.text = _symbol
+
+func getOpenedInfo() -> Dictionary:
+	var retDict: Dictionary = revealedHints.duplicate()
+	retDict["symbol"] = _symbol
+	return retDict
+
+func getHint(hintName) -> String:
+	var response: String = ""
+	match hintName:
+		"Atomic mass":
+			response = "%.2f" % _relativeAtomicMass
+			revealedHints[hintName] = response
+		_:
+			revealedHints[hintName] = ""
+	return response
 
 func setLoc(elementLoc):
 	assert(_elementLoc == -1, "Shouldn't set element location again once set")
@@ -38,7 +55,7 @@ func _on_gui_input(event):
 			ghosting = false
 			mouseGhost.visible = false
 			mouseGhost.position = Vector2(0, 0)
-			emit_signal("dropped")
+			dropped.emit()
 	if ghosting and event is InputEventMouseMotion:
 		mouseGhost.position = event.global_position - clickPos
 

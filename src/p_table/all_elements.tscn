@@ -17,6 +17,7 @@ script = ExtResource("1_34n8i")
 [node name="H" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "H"
+_relativeAtomicMass = 1.01
 
 [node name="He" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -24,31 +25,39 @@ layout_mode = 2
 [node name="Li" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "Li"
+_relativeAtomicMass = 6.94
 
 [node name="Be" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "Be"
+_relativeAtomicMass = 9.01
 
 [node name="B" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "B"
+_relativeAtomicMass = 10.81
 
 [node name="C" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "C"
+_relativeAtomicMass = 12.01
 
 [node name="N" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "N"
+_relativeAtomicMass = 14.01
 
 [node name="O" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "O"
+_relativeAtomicMass = 16.0
 
 [node name="F" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "F"
+_relativeAtomicMass = 19.0
 
 [node name="Ne" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "Ne"
+_relativeAtomicMass = 20.18

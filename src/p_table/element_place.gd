@@ -22,7 +22,7 @@ func _on_mouse_entered():
 		return
 	active = true
 	activeColor.visible = true
-	emit_signal("activate")
+	activate.emit()
 
 func _on_mouse_exited():
 	if not active or elementParent.get_child_count() > 0:
@@ -32,4 +32,4 @@ func _on_mouse_exited():
 func deactivation():
 	active = false
 	activeColor.visible = false
-	emit_signal("deactivate")
+	deactivate.emit()

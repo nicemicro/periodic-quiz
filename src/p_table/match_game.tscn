@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7lil0i2q12bx"]
+[gd_scene load_steps=7 format=3 uid="uid://b7lil0i2q12bx"]
 
 [ext_resource type="Theme" uid="uid://cwmvssyycl315" path="res://theme/periodic_table.tres" id="1_axefy"]
 [ext_resource type="Script" path="res://p_table/match_game.gd" id="1_hmqyt"]
 [ext_resource type="PackedScene" uid="uid://cqj7e87qg21iy" path="res://p_table/p_table.tscn" id="1_tn1os"]
 [ext_resource type="PackedScene" uid="uid://demxfooudcg4y" path="res://p_table/all_elements.tscn" id="2_02f2v"]
 [ext_resource type="PackedScene" uid="uid://d457mukcsa8n" path="res://p_table/element_place.tscn" id="2_y80xu"]
+[ext_resource type="PackedScene" uid="uid://dkwdswb7kpvdd" path="res://p_table/hint_box.tscn" id="6_d2goi"]
 
 [node name="MatchGame" type="Control"]
 layout_mode = 3
@@ -112,14 +113,8 @@ custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 color = Color(0.482353, 0.482353, 0.482353, 1)
 
-[node name="HintBox" type="VBoxContainer" parent="GamePanel/Columns"]
+[node name="HintBox" parent="GamePanel/Columns" instance=ExtResource("6_d2goi")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="GamePanel/Columns/HintBox"]
-layout_mode = 2
-text = "Hints"
-horizontal_alignment = 1
 
 [node name="Blocker" type="ColorRect" parent="."]
 visible = false
@@ -179,3 +174,5 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
+
+[connection signal="hintOpened" from="GamePanel/Columns/HintBox" to="." method="_on_hint_box_hint_opened"]

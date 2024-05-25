@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://k77w117it0k7"]
+
+[ext_resource type="Script" path="res://p_table/hint_revealer.gd" id="1_mdokr"]
+
+[node name="HintRevealer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mdokr")
+
+[node name="Info" type="RichTextLabel" parent="."]
+visible = false
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 15
+bbcode_enabled = true
+text = "00000"
+fit_content = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Reveal"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
