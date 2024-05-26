@@ -1,7 +1,16 @@
+@tool
 extends CenterContainer
 
-@export var _symbol: String = "He"
-@export var _relativeAtomicMass: float = 4.00
+@export var _symbol: String = "He":
+	set(newSymbol):
+		_symbol = newSymbol
+		if symbolLabel == null:
+			return
+		symbolLabel.text = _symbol
+@export var _relativeAtomicMass: float = 4.00:
+	set(newData):
+		_relativeAtomicMass = newData
+		tooltip_text = "Atomic mass: " + "%.2f" % _relativeAtomicMass
 
 var _elementLoc: int = -1
 
