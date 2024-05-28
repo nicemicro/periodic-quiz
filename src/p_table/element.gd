@@ -7,10 +7,7 @@ extends CenterContainer
 		if symbolLabel == null:
 			return
 		symbolLabel.text = _symbol
-@export var _relativeAtomicMass: float = 4.00:
-	set(newData):
-		_relativeAtomicMass = newData
-		tooltip_text = "Atomic mass: " + "%.2f" % _relativeAtomicMass
+@export var _relativeAtomicMass: float = 4.00
 
 var _elementLoc: int = -1
 
@@ -28,6 +25,7 @@ signal dropped
 func _ready():
 	symbolLabel.text = _symbol
 	ghostLabel.text = _symbol
+	tooltip_text = ""
 
 func getOpenedInfo() -> Dictionary:
 	var retDict: Dictionary = revealedHints.duplicate()
@@ -42,6 +40,10 @@ func getHint(hintName) -> String:
 			revealedHints[hintName] = response
 		_:
 			revealedHints[hintName] = ""
+	tooltip_text = ""
+	for hint in revealedHints:
+		if revealedHints[hint] != "":
+			tooltip_text = tooltip_text + hint + ": " + revealedHints[hint] + "\n"
 	return response
 
 func setLoc(elementLoc):

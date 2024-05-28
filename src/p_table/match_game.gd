@@ -6,15 +6,17 @@ extends Control
 @onready var storagePoints = %StoragePoints
 @onready var deductionLabel = %Deduction
 @onready var gameBlocker = $Blocker
-@onready var scoreLabel = %Score
-@onready var matchesLabel = %Matches
 @onready var hintBox = $GamePanel/Columns/HintBox
 var activeStorage: CenterContainer = null
-var score: int = 0
+var deduction: int = 0
+var hintsRevealed: int = 0
+var moved: int = 0
 var hintPenalties: Dictionary = {
 	"Atomic mass": -40,
-	"Typical compound": -15,
-	"Strange compound": -10
+	"Typical compound 1": -15,
+	"Typical compound 2": -15,
+	"Strange compound": -10,
+	"Trivia": -5
 }
 var selectedElement: Container = null
 
@@ -47,7 +49,8 @@ func elementDropped(elementNode):
 				inStorage = true
 				break
 		if not inStorage:
-			score -= 50
+			deduction -= 50
+			moved += 1
 	#Check whether the element is moving to storage or to the periodic table
 	if activeStorage == null:
 		var result: bool = pTable.elementDropped(elementNode)
@@ -68,7 +71,7 @@ func elementDropped(elementNode):
 		if allEmpty:
 			finishGame()
 	#update deductions
-	deductionLabel.text = str(score)
+	deductionLabel.text = str(deduction)
 
 func storageActivated(storageNode):
 	activeStorage = storageNode
@@ -82,13 +85,17 @@ func storageDeactivated(storageNode):
 func _on_hint_box_hint_opened(hintName):
 	var hint: String = selectedElement.getHint(hintName)
 	if hint != "":
-		score += hintPenalties[hintName]
-		deductionLabel.text = str(score)
+		deduction += hintPenalties[hintName]
+		deductionLabel.text = str(deduction)
+		if hintPenalties[hintName] != 0:
+			hintsRevealed += 1
 	hintBox.revealHint(hintName, hint)
 
 func finishGame():
 	var matchedElements: int = pTable.checkElements()
-	score += matchedElements * 100
+	var score = matchedElements * 100 + deduction
 	gameBlocker.show()
-	scoreLabel.text = str(score)
-	matchesLabel.text = str(matchedElements)
+	%Score.text = str(score)
+	%Matches.text = str(matchedElements)# + " (" + str(matchedElements * 100) + ")"
+	%Moves.text = str(moved)
+	%Hints.text = str(hintsRevealed)

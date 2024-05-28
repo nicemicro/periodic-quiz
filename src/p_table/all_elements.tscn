@@ -16,7 +16,6 @@ script = ExtResource("1_34n8i")
 
 [node name="H" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 1.01"
 _symbol = "H"
 _relativeAtomicMass = 1.01
 
@@ -25,54 +24,45 @@ layout_mode = 2
 
 [node name="Li" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 6.94"
 _symbol = "Li"
 _relativeAtomicMass = 6.94
 
 [node name="Be" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 9.01"
 _symbol = "Be"
 _relativeAtomicMass = 9.01
 
 [node name="B" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 10.81"
 _symbol = "B"
 _relativeAtomicMass = 10.81
 
 [node name="C" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 12.01"
 _symbol = "C"
 _relativeAtomicMass = 12.01
 
 [node name="N" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 14.01"
 _symbol = "N"
 _relativeAtomicMass = 14.01
 
 [node name="O" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 16.00"
 _symbol = "O"
 _relativeAtomicMass = 16.0
 
 [node name="F" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 19.00"
 _symbol = "F"
 _relativeAtomicMass = 19.0
 
 [node name="Ne" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 20.18"
 _symbol = "Ne"
 _relativeAtomicMass = 20.18
 
 [node name="Na" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-tooltip_text = "Atomic mass: 22.99"
 _symbol = "Na"
 _relativeAtomicMass = 22.99

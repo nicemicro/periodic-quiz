@@ -1,4 +1,3 @@
-@tool
 extends GridContainer
 
 var elementList: Dictionary = {}
