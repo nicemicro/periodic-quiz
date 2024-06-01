@@ -7,7 +7,15 @@ extends CenterContainer
 		if symbolLabel == null:
 			return
 		symbolLabel.text = _symbol
+		_typicalCompound1 = _symbol
+		_typicalCompound2 = ""
+		_weirdCompound = ""
+		_trivia = ""
 @export var _relativeAtomicMass: float = 4.00
+@export var _typicalCompound1: String = "He"
+@export var _typicalCompound2: String = ""
+@export var _weirdCompound: String = "He[sub]2[/sub][sup x_off=-6]+[/sup]"
+@export var _trivia: String = "Smallest atom"
 
 var _elementLoc: int = -1
 
@@ -32,18 +40,36 @@ func getOpenedInfo() -> Dictionary:
 	retDict["symbol"] = _symbol
 	return retDict
 
+func strip_bbcode(source:String) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\[.+?\\]")
+	return regex.sub(source, "", true)
+
 func getHint(hintName) -> String:
 	var response: String = ""
 	match hintName:
 		"Atomic mass":
 			response = "%.2f" % _relativeAtomicMass
 			revealedHints[hintName] = response
+		"Typical compound 1":
+			response = _typicalCompound1
+		"Typical compound 2":
+			response = _typicalCompound2
+		"Strange compound":
+			response = _weirdCompound
+		"Trivia":
+			response = _trivia
 		_:
 			revealedHints[hintName] = ""
+	if response != "":
+		revealedHints[hintName] = response
 	tooltip_text = ""
 	for hint in revealedHints:
 		if revealedHints[hint] != "":
-			tooltip_text = tooltip_text + hint + ": " + revealedHints[hint] + "\n"
+			tooltip_text = (
+				tooltip_text + hint + ": " +
+				strip_bbcode(revealedHints[hint]) + "\n"
+			)
 	return response
 
 func setLoc(elementLoc):

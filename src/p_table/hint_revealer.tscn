@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://k77w117it0k7"]
+[gd_scene load_steps=6 format=3 uid="uid://k77w117it0k7"]
 
 [ext_resource type="Script" path="res://p_table/hint_revealer.gd" id="1_mdokr"]
+[ext_resource type="Script" path="res://theme/subscript.gd" id="2_q7c7e"]
+[ext_resource type="Script" path="res://theme/superscript.gd" id="2_xwo11"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_6wj1x"]
+script = ExtResource("2_xwo11")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_3sdwo"]
+script = ExtResource("2_q7c7e")
 
 [node name="HintRevealer" type="MarginContainer"]
 anchors_preset = 15
@@ -18,8 +26,9 @@ custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
-text = "00000"
+text = "NH[sub]4[/sub][sup x_off=-6]+[/sup]"
 fit_content = true
+custom_effects = [SubResource("RichTextEffect_6wj1x"), SubResource("RichTextEffect_3sdwo")]
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 

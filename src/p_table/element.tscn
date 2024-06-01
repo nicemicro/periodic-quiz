@@ -27,6 +27,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_x774s")
+_typicalCompound1 = null
+_typicalCompound2 = null
+_weirdCompound = null
+_trivia = null
 
 [node name="ColorPanel" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(65, 75)

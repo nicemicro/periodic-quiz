@@ -42,9 +42,9 @@ grow_vertical = 1
 
 [node name="GamePanel" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 180.0
+offset_left = 170.0
 offset_top = 10.0
-offset_right = 730.0
+offset_right = 790.0
 offset_bottom = 220.0
 
 [node name="Columns" type="HBoxContainer" parent="GamePanel"]
