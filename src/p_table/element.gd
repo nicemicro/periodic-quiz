@@ -61,8 +61,7 @@ func getHint(hintName) -> String:
 			response = _trivia
 		_:
 			revealedHints[hintName] = ""
-	if response != "":
-		revealedHints[hintName] = response
+	revealedHints[hintName] = response
 	tooltip_text = ""
 	for hint in revealedHints:
 		if revealedHints[hint] != "":

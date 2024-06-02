@@ -1,8 +1,12 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cwmvssyycl315"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cwmvssyycl315"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_240im"]
 bg_color = Color(0.18359, 0.18359, 0.18359, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n2dvr"]
+bg_color = Color(0.393086, 0.393086, 0.393085, 1)
+
 [resource]
 Label/font_sizes/font_size = 18
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_240im")
+PopupPanel/styles/panel = SubResource("StyleBoxFlat_n2dvr")
