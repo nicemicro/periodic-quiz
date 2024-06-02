@@ -16,6 +16,7 @@ extends CenterContainer
 @export var _typicalCompound2: String = ""
 @export var _weirdCompound: String = "He[sub]2[/sub][sup x_off=-6]+[/sup]"
 @export var _trivia: String = "Smallest atom"
+@export var _difficulty: int = 1
 
 var _elementLoc: int = -1
 
@@ -77,6 +78,9 @@ func setLoc(elementLoc):
 
 func getLoc() -> int:
 	return _elementLoc
+
+func getDifficulty() -> int:
+	return _difficulty
 
 func setIncorrect():
 	colorBg.color = Color(1.0, 0.3, 0.3)
