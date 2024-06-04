@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://dcshbbspsg005"]
+[gd_scene load_steps=3 format=3 uid="uid://dcshbbspsg005"]
+
+[ext_resource type="Theme" uid="uid://cwmvssyycl315" path="res://theme/periodic_table.tres" id="1_l8kpo"]
+[ext_resource type="Script" path="res://main_window.gd" id="2_yddmu"]
 
 [node name="MainWindow" type="CenterContainer"]
+custom_minimum_size = Vector2(1280, 720)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -8,3 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_l8kpo")
+script = ExtResource("2_yddmu")
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMenu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 32
+text = "Games"
+horizontal_alignment = 1
+
+[node name="MatchGame" type="Button" parent="MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+text = "Place the elements"
+
+[node name="GamePlace" type="Control" parent="."]
+layout_mode = 2
+
+[connection signal="pressed" from="MainMenu/MatchGame" to="." method="_on_match_game_pressed"]

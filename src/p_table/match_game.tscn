@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkwdswb7kpvdd" path="res://p_table/hint_box.tscn" id="6_d2goi"]
 
 [node name="MatchGame" type="Control"]
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
