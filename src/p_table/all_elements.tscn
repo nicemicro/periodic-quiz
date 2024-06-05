@@ -22,11 +22,9 @@ _typicalCompound1 = "H[sub]2[/sub]O"
 _typicalCompound2 = "NH[sub]3[/sub]"
 _weirdCompound = "NaH"
 _trivia = "Lightest atom"
-_difficulty = 1
 
 [node name="He" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
-_difficulty = 1
 
 [node name="Li" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -66,7 +64,6 @@ _typicalCompound1 = "CH[sub]4[/sub]"
 _typicalCompound2 = "H[sub]2[/sub]CO[sub]3[/sub]"
 _weirdCompound = "HCN"
 _trivia = "Diamond"
-_difficulty = 1
 
 [node name="N" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -76,7 +73,6 @@ _typicalCompound1 = "NH[sub]3[/sub]"
 _typicalCompound2 = "N[sub]2[/sub]O[sub]3[/sub]"
 _weirdCompound = "Ca[sub]3[/sub]N[sub]2[/sub]"
 _trivia = "Extremely strong triple bond"
-_difficulty = 1
 
 [node name="O" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -86,7 +82,6 @@ _typicalCompound1 = "MgO"
 _typicalCompound2 = "H[sub]2[/sub]O"
 _weirdCompound = "Li[sub]2[/sub]O[sub]2[/sub]"
 _trivia = "2nd highest electronegativity"
-_difficulty = 1
 
 [node name="F" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -96,7 +91,6 @@ _typicalCompound1 = "NaF"
 _typicalCompound2 = "GaF[sub]3[/sub]"
 _weirdCompound = "K[sub]3[/sub]AlF[sub]6[/sub]"
 _trivia = "Highest electronegativity"
-_difficulty = 1
 
 [node name="Ne" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -105,7 +99,6 @@ _relativeAtomicMass = 20.18
 _typicalCompound1 = "Ne"
 _weirdCompound = "NeH[sup]+[/sup]"
 _trivia = "No neutral compounds at RT"
-_difficulty = 1
 
 [node name="Na" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -115,4 +108,3 @@ _typicalCompound1 = "NaCl"
 _typicalCompound2 = "Na[sub]2[/sub]O"
 _weirdCompound = "BNaO[sub]2[/sub]"
 _trivia = "Abundant as Na[sup]+[/sup] ion"
-_difficulty = 1

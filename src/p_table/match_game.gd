@@ -5,12 +5,15 @@ extends Control
 @onready var allElements = $AllElements
 @onready var storagePoints = %StoragePoints
 @onready var deductionLabel = %Deduction
+@onready var timeLabel = %TimePassed
 @onready var gameBlocker = $Blocker
 @onready var hintBox = $GamePanel/Columns/HintBox
+@onready var gameStarter: Timer = $GameStarter
 var activeStorage: CenterContainer = null
 var deduction: int = 0
 var hintsRevealed: int = 0
 var moved: int = 0
+var elementsAdded: int = 0
 var hintPenalties: Dictionary = {
 	"Atomic mass": -40,
 	"Typical compound 1": -15,
@@ -19,8 +22,14 @@ var hintPenalties: Dictionary = {
 	"Trivia": -5
 }
 var selectedElement: Container = null
+var startTime: float
 
 func _ready():
+	startTime = Time.get_unix_time_from_system() + gameStarter.time_left
+	timeLabel.text = str(-int(gameStarter.time_left))
+
+func startGame():
+	startTime = Time.get_unix_time_from_system()
 	addElement()
 	for storage in storagePoints.get_children():
 		storage.activate.connect(storageActivated.bind(storage))
@@ -31,6 +40,7 @@ func addElement():
 	var elementNode: Control = allElements.giveRandomElement()
 	if elementNode == null:
 		return
+	elementsAdded += 1
 	selectedElement = elementNode
 	hintBox.elementSelected(elementNode)
 	elementNode.dropped.connect(elementDropped.bind(elementNode))
@@ -93,9 +103,27 @@ func _on_hint_box_hint_opened(hintName):
 
 func finishGame():
 	var matchedElements: int = pTable.checkElements()
-	var score = matchedElements * 100 + deduction
+	var timePassed: float = Time.get_unix_time_from_system() - startTime + 0.3
+	var timeBonus: int = round(
+		10000 / sqrt(timePassed) * (float(matchedElements) / float(elementsAdded))
+	)
+	var score = matchedElements * 100 + deduction + timeBonus
 	gameBlocker.show()
+	%TimeKeeper.stop()
 	%Score.text = str(score)
 	%Matches.text = str(matchedElements)# + " (" + str(matchedElements * 100) + ")"
+	%TimeBonus.text = str(timeBonus)
 	%Moves.text = str(moved)
 	%Hints.text = str(hintsRevealed)
+
+func _on_time_keeper_timeout():
+	var timePassed: float = Time.get_unix_time_from_system() - startTime + 0.3
+	var timeString: String
+	if timePassed < 0:
+		timeString = str(int(timePassed-0.5))
+	else:
+		timeString = (
+			"%d" % (int(timePassed) / 60) + ":" +
+			"%02d" % (int(timePassed) % 60)
+		)
+	timeLabel.text = timeString

@@ -20,6 +20,11 @@ size_flags_vertical = 3
 theme = ExtResource("1_axefy")
 script = ExtResource("1_hmqyt")
 
+[node name="GameStarter" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [node name="AllElements" parent="." instance=ExtResource("2_02f2v")]
 visible = false
 layout_mode = 0
@@ -51,61 +56,98 @@ offset_bottom = 220.0
 [node name="Columns" type="HBoxContainer" parent="GamePanel"]
 layout_mode = 2
 
-[node name="Storage" type="VBoxContainer" parent="GamePanel/Columns"]
-layout_mode = 2
-size_flags_stretch_ratio = 1.86
-
-[node name="Label" type="Label" parent="GamePanel/Columns/Storage"]
-layout_mode = 2
-text = "Temporary storage"
-horizontal_alignment = 1
-
-[node name="StoragePoints" type="HBoxContainer" parent="GamePanel/Columns/Storage"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ElementStore1" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="Rows" type="VBoxContainer" parent="GamePanel/Columns"]
 layout_mode = 2
 
-[node name="ElementStore2" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="ScoreCos" type="HBoxContainer" parent="GamePanel/Columns/Rows"]
 layout_mode = 2
 
-[node name="ElementStore3" parent="GamePanel/Columns/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+[node name="Deductions" type="VBoxContainer" parent="GamePanel/Columns/Rows/ScoreCos"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns/Storage"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 2
-color = Color(0.482353, 0.482353, 0.482353, 1)
-
-[node name="DeductionText" type="Label" parent="GamePanel/Columns/Storage"]
+[node name="DeductionText" type="Label" parent="GamePanel/Columns/Rows/ScoreCos/Deductions"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "Deductions"
 horizontal_alignment = 1
 
-[node name="Deduction" type="Label" parent="GamePanel/Columns/Storage"]
+[node name="Deduction" type="Label" parent="GamePanel/Columns/Rows/ScoreCos/Deductions"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 6
 theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns"]
+[node name="Timer" type="VBoxContainer" parent="GamePanel/Columns/Rows/ScoreCos"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimerText" type="Label" parent="GamePanel/Columns/Rows/ScoreCos/Timer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Timer"
+horizontal_alignment = 1
+
+[node name="TimePassed" type="Label" parent="GamePanel/Columns/Rows/ScoreCos/Timer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 24
+text = "0:00"
+horizontal_alignment = 1
+
+[node name="TimeKeeper" type="Timer" parent="GamePanel/Columns/Rows/ScoreCos/Timer"]
+unique_name_in_owner = true
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns/Rows"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="ElementCols" type="HBoxContainer" parent="GamePanel/Columns/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Storage" type="VBoxContainer" parent="GamePanel/Columns/Rows/ElementCols"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.86
+
+[node name="Label" type="Label" parent="GamePanel/Columns/Rows/ElementCols/Storage"]
+layout_mode = 2
+text = "Temporary storage"
+horizontal_alignment = 1
+
+[node name="StoragePoints" type="HBoxContainer" parent="GamePanel/Columns/Rows/ElementCols/Storage"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ElementStore1" parent="GamePanel/Columns/Rows/ElementCols/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="ElementStore2" parent="GamePanel/Columns/Rows/ElementCols/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="ElementStore3" parent="GamePanel/Columns/Rows/ElementCols/Storage/StoragePoints" instance=ExtResource("2_y80xu")]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="GamePanel/Columns/Rows/ElementCols"]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 color = Color(0.482353, 0.482353, 0.482353, 1)
 
-[node name="Spawn" type="VBoxContainer" parent="GamePanel/Columns"]
+[node name="Spawn" type="VBoxContainer" parent="GamePanel/Columns/Rows/ElementCols"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="GamePanel/Columns/Spawn"]
+[node name="Label" type="Label" parent="GamePanel/Columns/Rows/ElementCols/Spawn"]
 layout_mode = 2
 text = "New element"
 horizontal_alignment = 1
 
-[node name="NewElementPlace" type="CenterContainer" parent="GamePanel/Columns/Spawn"]
+[node name="NewElementPlace" type="CenterContainer" parent="GamePanel/Columns/Rows/ElementCols/Spawn"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -168,6 +210,11 @@ layout_mode = 2
 text = "Matches:"
 horizontal_alignment = 2
 
+[node name="TimeBonus" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Left"]
+layout_mode = 2
+text = "Time bonus:"
+horizontal_alignment = 2
+
 [node name="MovesText" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Left"]
 layout_mode = 2
 text = "Moved elements:"
@@ -187,6 +234,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
+[node name="TimeBonus" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
 [node name="Moves" type="Label" parent="Blocker/ResultBox/HeaderFooter/Columns/Right"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -197,4 +249,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
+[connection signal="timeout" from="GameStarter" to="." method="startGame"]
+[connection signal="timeout" from="GamePanel/Columns/Rows/ScoreCos/Timer/TimeKeeper" to="." method="_on_time_keeper_timeout"]
 [connection signal="hintOpened" from="GamePanel/Columns/HintBox" to="." method="_on_hint_box_hint_opened"]
