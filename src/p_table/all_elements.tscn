@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://demxfooudcg4y"]
+[gd_scene load_steps=4 format=3 uid="uid://demxfooudcg4y"]
 
 [ext_resource type="Script" path="res://p_table/all_elements.gd" id="1_34n8i"]
 [ext_resource type="PackedScene" uid="uid://c4o2xmg1nph1u" path="res://p_table/element.tscn" id="1_rggk7"]
+[ext_resource type="PackedScene" uid="uid://ckdkb4ss1xtta" path="res://p_table/empty.tscn" id="3_u17aj"]
 
 [node name="AllElements" type="GridContainer"]
 anchors_preset = 15
@@ -22,6 +23,54 @@ _typicalCompound1 = "H[sub]2[/sub]O"
 _typicalCompound2 = "NH[sub]3[/sub]"
 _weirdCompound = "NaH"
 _trivia = "Lightest atom"
+
+[node name="Empty" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty2" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty3" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty4" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty5" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty6" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty7" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty8" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty9" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty10" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty11" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty12" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty13" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty14" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty15" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty16" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
 
 [node name="He" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -45,6 +94,36 @@ _typicalCompound2 = "Be[sub]3[/sub](PO[sub]4[/sub])[sub]2[/sub]"
 _weirdCompound = "CBe[sub]2[/sub]"
 _trivia = "Lightest alkaline earth metal"
 _difficulty = 2
+
+[node name="Empty17" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty18" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty19" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty20" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty21" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty22" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty23" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty24" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty25" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty26" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
 
 [node name="B" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -81,14 +160,14 @@ _relativeAtomicMass = 16.0
 _typicalCompound1 = "MgO"
 _typicalCompound2 = "H[sub]2[/sub]O"
 _weirdCompound = "Li[sub]2[/sub]O[sub]2[/sub]"
-_trivia = "2nd highest electronegativity"
+_trivia = "2[sup]nd[/sup] highest electronegativity"
 
 [node name="F" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "F"
 _relativeAtomicMass = 19.0
-_typicalCompound1 = "NaF"
-_typicalCompound2 = "GaF[sub]3[/sub]"
+_typicalCompound1 = "CaF[sub]2[/sub]"
+_typicalCompound2 = "HF"
 _weirdCompound = "K[sub]3[/sub]AlF[sub]6[/sub]"
 _trivia = "Highest electronegativity"
 
@@ -98,7 +177,7 @@ _symbol = "Ne"
 _relativeAtomicMass = 20.18
 _typicalCompound1 = "Ne"
 _weirdCompound = "NeH[sup]+[/sup]"
-_trivia = "No neutral compounds at RT"
+_trivia = "No neutral molecular compound at RT"
 
 [node name="Na" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
@@ -108,3 +187,348 @@ _typicalCompound1 = "NaCl"
 _typicalCompound2 = "Na[sub]2[/sub]O"
 _weirdCompound = "BNaO[sub]2[/sub]"
 _trivia = "Abundant as Na[sup]+[/sup] ion"
+
+[node name="Mg" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Mg"
+_relativeAtomicMass = 24.31
+_typicalCompound1 = "Mg(NO[sub]3[/sub])[sub]2[/sub]"
+_typicalCompound2 = "MgO"
+_weirdCompound = "Mg[sub]2[/sub]Sn"
+_trivia = "Reactive, passivating oxide layer"
+
+[node name="Empty27" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty28" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty29" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty30" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty31" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty32" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty33" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty34" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty35" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Empty36" parent="." instance=ExtResource("3_u17aj")]
+layout_mode = 2
+
+[node name="Al" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Al"
+_relativeAtomicMass = 26.98
+_typicalCompound1 = "Al[sub]2[/sub]O[sub]3[/sub]"
+_typicalCompound2 = "AlCl[sub]3[/sub]"
+_weirdCompound = "NaAlO[sub]2[/sub]"
+_trivia = "Smallest post-transition metal atom"
+_difficulty = 2
+
+[node name="Si" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Si"
+_relativeAtomicMass = 28.09
+_typicalCompound1 = "SiO[sub]2[/sub]"
+_typicalCompound2 = "SiF[sub]2[/sub]"
+_weirdCompound = "Mg[sub]2[/sub]SiO[sub]3[/sub]"
+_trivia = "Semiconducting metalloid"
+_difficulty = 2
+
+[node name="P" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "P"
+_relativeAtomicMass = 30.97
+_typicalCompound1 = "PCl[sub]3[/sub]"
+_typicalCompound2 = "H[sub]3[/sub]PO[sub]4[/sub]"
+_weirdCompound = "PF[sub]5[/sub]"
+_trivia = "Multiple allotropes, incl. P[sub]4[/sub]"
+_difficulty = 2
+
+[node name="S" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "S"
+_relativeAtomicMass = 32.06
+_typicalCompound1 = "H[sub]2[/sub]S"
+_typicalCompound2 = "H[sub]2[/sub]SO[sub]4[/sub]"
+_weirdCompound = "Na[sub]2[/sub]SSO[sub]4[/sub]"
+_trivia = "Typically exists as S[sub]8[/sub] rings"
+_difficulty = 2
+
+[node name="Cl" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Cl"
+_relativeAtomicMass = 35.45
+_typicalCompound1 = "HCl"
+_typicalCompound2 = "BaCl[sub]2[/sub]"
+_weirdCompound = "HClO[sub]3[/sub]"
+_trivia = "3[sup]rd[/sup] highest electronegativity"
+
+[node name="Ar" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ar"
+_relativeAtomicMass = 39.95
+_typicalCompound1 = "Ar"
+_weirdCompound = "HArF"
+_trivia = "Most abundant noble gas"
+
+[node name="K" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "K"
+_relativeAtomicMass = 39.1
+_typicalCompound1 = "KCl"
+_typicalCompound2 = "K[sub]2[/sub]CO[sub]3[/sub]"
+_weirdCompound = "K[sub]2[/sub]O[sub]2[/sub]"
+_trivia = "Forms peroxide on contact with air"
+_difficulty = 2
+
+[node name="Ca" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ca"
+_relativeAtomicMass = 40.08
+_typicalCompound1 = "CaBr[sub]2[/sub]"
+_typicalCompound2 = "CaO"
+_weirdCompound = "CaC[sub]2[/sub]"
+_trivia = "Forms oxide and nitride on contact with air"
+_difficulty = 2
+
+[node name="Sc" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Sc"
+_relativeAtomicMass = 44.96
+_typicalCompound1 = "ScCl[sub]3[/sub]"
+_typicalCompound2 = "Sc[sub]2[/sub]O[sub]3[/sub]"
+_weirdCompound = "CsScCl[sub]3[/sub]"
+_trivia = "Amphoteric oxide"
+_difficulty = 5
+
+[node name="Ti" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ti"
+_relativeAtomicMass = 47.87
+_typicalCompound1 = "TiO[sub]2[/sub]"
+_typicalCompound2 = "TiF[sub]3[/sub]"
+_weirdCompound = "BaTiO[sub]3[/sub]"
+_trivia = "Burns in pure N[sub]2[/sub], produces nitride"
+_difficulty = 5
+
+[node name="V" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "V"
+_relativeAtomicMass = 50.94
+_typicalCompound1 = "VCl[sub]5[/sub]"
+_typicalCompound2 = "VBr[sub]2[/sub]"
+_weirdCompound = "VOSO[sub]4[/sub]"
+_trivia = "Extensive family of oxyanions"
+_difficulty = 5
+
+[node name="Cr" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Cr"
+_relativeAtomicMass = 52.0
+_typicalCompound1 = "Cr(NO[sub]3[/sub])[sub]3[/sub]"
+_typicalCompound2 = "K[sub]2[/sub]CrO[sub]4[/sub]"
+_weirdCompound = "K[sub]2[/sub]Cr[sub]2[/sub]O[sub]7[/sub] "
+_trivia = "Lightest element violating the Aufbau principle"
+_difficulty = 5
+
+[node name="Mn" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Mn"
+_relativeAtomicMass = 54.94
+_typicalCompound1 = "MnCl[sub]2[/sub]"
+_typicalCompound2 = "MnO[sub]2[/sub]"
+_weirdCompound = "KMnO[sub]4[/sub]"
+_trivia = "Paramagnetic metal"
+_difficulty = 5
+
+[node name="Fe" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Fe"
+_relativeAtomicMass = 55.85
+_typicalCompound1 = "Fe[sub]2[/sub]O[sub]3[/sub]"
+_typicalCompound2 = "FeCl[sub]2[/sub]"
+_weirdCompound = "K[sub]2[/sub]FeO[sub]4[/sub]"
+_trivia = "Ferromagnetic due to two unpaired [i]e[/i][sup]-[/sup]"
+_difficulty = 5
+
+[node name="Co" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Co"
+_relativeAtomicMass = 58.93
+_typicalCompound1 = "CoO"
+_typicalCompound2 = "Co[sub]2[/sub]S[sub]3[/sub]"
+_weirdCompound = "Cs[sub]2[/sub]CoF[sub]6[/sub]"
+_trivia = "Ferromagnetic metal"
+_difficulty = 5
+
+[node name="Ni" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ni"
+_relativeAtomicMass = 58.69
+_typicalCompound1 = "NiCl[sub]2[/sub]"
+_typicalCompound2 = "NiF[sub]3[/sub]"
+_weirdCompound = "H[sub]5[/sub]NiF[sub]7[/sub]-6H[sub]2[/sub]O"
+_trivia = "Electron configuration is disputed"
+_difficulty = 5
+
+[node name="Cu" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Cu"
+_relativeAtomicMass = 63.55
+_typicalCompound1 = "CuI"
+_typicalCompound2 = "CuS"
+_weirdCompound = "K[sub]3[/sub]CuF[sub]6[/sub]"
+_trivia = "Metallic bonds lack covalent character"
+_difficulty = 5
+
+[node name="Zn" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Zn"
+_relativeAtomicMass = 65.38
+_typicalCompound1 = "ZnO"
+_typicalCompound2 = "Zn(ClO[sub]3[/sub])[sub]2[/sub]"
+_weirdCompound = "(C[sub]2[/sub]H[sub]5[/sub])[sub]2[/sub]Zn"
+_trivia = "Chemically similar to Mg"
+_difficulty = 5
+
+[node name="Ga" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ga"
+_relativeAtomicMass = 69.72
+_typicalCompound1 = "Ga(NO[sub]3[/sub])[sub]3[/sub]"
+_typicalCompound2 = "GaN"
+_weirdCompound = "Li[sub]3[/sub]Ga"
+_trivia = "Very low melting point metal"
+_difficulty = 3
+
+[node name="Ge" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Ge"
+_relativeAtomicMass = 72.63
+_typicalCompound1 = "GeO[sub]2[/sub]"
+_typicalCompound2 = "GeI[sub]4[/sub]"
+_weirdCompound = "GeS"
+_trivia = "Metalloid, semiconductor"
+_difficulty = 3
+
+[node name="As" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "As"
+_relativeAtomicMass = 74.92
+_typicalCompound1 = "AsH[sub]3[/sub]"
+_typicalCompound2 = "Zn[sub]3[/sub](AsO[sub]4[/sub])[sub]2[/sub]"
+_weirdCompound = "Ag[sub]3[/sub]AsO[sub]3[/sub]"
+_trivia = "Metalloid for compound semiconductors"
+_difficulty = 3
+
+[node name="Se" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Se"
+_relativeAtomicMass = 78.97
+_typicalCompound1 = "SeO[sub]2[/sub]"
+_typicalCompound2 = "Al[sub]2[/sub]Se[sub]3[/sub]"
+_weirdCompound = "KSeCN"
+_trivia = "Nonmetal, found as contaminant in ores"
+_difficulty = 3
+
+[node name="Br" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Br"
+_relativeAtomicMass = 79.9
+_typicalCompound1 = "HBr"
+_typicalCompound2 = "FeBr[sub]3[/sub]"
+_weirdCompound = "KBrF[sub]4[/sub]"
+_trivia = "Oxidizer liquid"
+_difficulty = 2
+
+[node name="Kr" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Kr"
+_relativeAtomicMass = 83.8
+_typicalCompound1 = "Kr"
+_weirdCompound = "KrF[sub]2[/sub]"
+_trivia = "Inert gas, trace amounts in atmosphere"
+_difficulty = 2
+
+[node name="Rb" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Rb"
+_relativeAtomicMass = 85.47
+_typicalCompound1 = "RbCl"
+_typicalCompound2 = "Rb[sub]2[/sub]O"
+_weirdCompound = "RbO[sub]2[/sub]"
+_trivia = "Ignites spontaneously on air"
+_difficulty = 3
+
+[node name="Sr" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Sr"
+_relativeAtomicMass = 87.62
+_typicalCompound1 = "SrO"
+_typicalCompound2 = "SrCl[sub]2[/sub]"
+_weirdCompound = "SrO[sub]2[/sub]"
+_trivia = "Hydroxide is moderately strong base"
+_difficulty = 3
+
+[node name="Y" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Y"
+_relativeAtomicMass = 88.91
+_typicalCompound1 = "Y[sub]2[/sub]O[sub]3[/sub]"
+_typicalCompound2 = "YF[sub]3[/sub]"
+_weirdCompound = "YH[sub]2[/sub]"
+_trivia = "Chemically similar to lanthanides"
+_difficulty = 5
+
+[node name="Zr" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Zr"
+_relativeAtomicMass = 91.22
+_typicalCompound1 = "ZrO[sub]2[/sub]"
+_typicalCompound2 = "ZrI[sub]4[/sub]"
+_weirdCompound = "((C[sub]5[/sub]H[sub]5[/sub])[sub]2[/sub]ZrBr[sub]2[/sub]"
+_trivia = "Resistant to acids except when F[sub]2[/sub] is present"
+_difficulty = 5
+
+[node name="Nb" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Nb"
+_relativeAtomicMass = 92.91
+_typicalCompound1 = "Nb[sub]2[/sub]O[sub]5[/sub]"
+_typicalCompound2 = "NbF[sub]4[/sub]"
+_weirdCompound = "H[sub]2[/sub]NbOF[sub]5[/sub]"
+_trivia = "High melting point but relatively low denstiy"
+_difficulty = 5
+
+[node name="Mo" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Mo"
+_relativeAtomicMass = 95.95
+_typicalCompound1 = "MoS[sub]2[/sub]"
+_typicalCompound2 = "MoO[sub]3[/sub]"
+_weirdCompound = "Mo[sub]6[/sub]Cl[sub]12[/sub]"
+_trivia = "5[sup]th[/sup] highest melting point, low thermal expansion"
+_difficulty = 5
+
+[node name="Tc" parent="." instance=ExtResource("1_rggk7")]
+layout_mode = 2
+_symbol = "Tc"
+_relativeAtomicMass = 98.0
+_typicalCompound1 = "NaTcO[sub]4[/sub]"
+_typicalCompound2 = "TcCl[sub]4[/sub]"
+_weirdCompound = "Tc[sub]3[/sub]Cl[sub]9[/sub]"
+_trivia = "First generated from molybdenum"
+_difficulty = 5

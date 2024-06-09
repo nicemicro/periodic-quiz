@@ -1,5 +1,6 @@
 @tool
 extends CenterContainer
+class_name ElementNode
 
 @export var _symbol: String = "He":
 	set(newSymbol):

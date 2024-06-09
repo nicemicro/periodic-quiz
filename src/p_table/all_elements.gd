@@ -6,6 +6,8 @@ func _ready():
 	randomize()
 	var counter: int = 0
 	for childNode in get_children():
+		if not childNode is ElementNode:
+			continue
 		elementList[counter] = childNode
 		childNode.setLoc(counter)
 		counter += 1
