@@ -18,6 +18,7 @@ class_name ElementNode
 @export var _weirdCompound: String = "He[sub]2[/sub][sup x_off=-6]+[/sup]"
 @export var _trivia: String = "Smallest atom"
 @export var _difficulty: int = 1
+@export var _radioactive: bool = false
 
 var _elementLoc: int = -1
 
@@ -51,7 +52,10 @@ func getHint(hintName) -> String:
 	var response: String = ""
 	match hintName:
 		"Atomic mass":
-			response = "%.2f" % _relativeAtomicMass
+			if _radioactive:
+				response = "(%.0f)" % _relativeAtomicMass
+			else:
+				response = "%.2f" % _relativeAtomicMass
 			revealedHints[hintName] = response
 		"Typical compound 1":
 			response = _typicalCompound1
