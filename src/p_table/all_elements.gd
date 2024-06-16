@@ -1,4 +1,5 @@
 extends GridContainer
+class_name PTableFull
 
 var elementList: Dictionary = {}
 
@@ -18,7 +19,7 @@ func giveRandomElement() -> Control:
 	var currentDiff: int = 1
 	var baseDiff: int = -1
 	var choseFrom: Array = []
-	var minLength: int = 5
+	var minLength: int = 15
 	while len(choseFrom) < minLength and len(choseFrom) < len(elementList):
 		for elementNum in elementList:
 			if elementList[elementNum].getDifficulty() == currentDiff:

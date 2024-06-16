@@ -27,6 +27,7 @@ var startTime: float
 func _ready():
 	startTime = Time.get_unix_time_from_system() + gameStarter.time_left
 	timeLabel.text = str(-int(gameStarter.time_left))
+	pTable.initialize(allElements)
 
 func startGame():
 	startTime = Time.get_unix_time_from_system()
