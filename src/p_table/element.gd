@@ -57,11 +57,11 @@ func getHint(hintName) -> String:
 			else:
 				response = "%.2f" % _relativeAtomicMass
 			revealedHints[hintName] = response
-		"Typical compound 1":
+		"Compound 1":
 			response = _typicalCompound1
-		"Typical compound 2":
+		"Compound 2":
 			response = _typicalCompound2
-		"Strange compound":
+		"Compound 3":
 			response = _weirdCompound
 		"Trivia":
 			response = _trivia

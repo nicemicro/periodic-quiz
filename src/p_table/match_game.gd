@@ -16,10 +16,15 @@ var moved: int = 0
 var elementsAdded: int = 0
 var hintPenalties: Dictionary = {
 	"Atomic mass": -40,
-	"Typical compound 1": -15,
-	"Typical compound 2": -15,
-	"Strange compound": -10,
+	"Compound 1": -15,
+	"Compound 2": -15,
+	"Compound 3": -10,
 	"Trivia": -5
+}
+var hintToolTips: Dictionary = {
+	"Compound 1": "Common compound",
+	"Compound 2": "Common compound",
+	"Compound 3": "Strange compound",
 }
 var selectedElement: Container = null
 var startTime: float
@@ -35,7 +40,7 @@ func startGame():
 	for storage in storagePoints.get_children():
 		storage.activate.connect(storageActivated.bind(storage))
 		storage.deactivate.connect(storageDeactivated.bind(storage))
-	hintBox.setPenaltyNumbers(hintPenalties)
+	hintBox.setPenaltyNumbers(hintPenalties, hintToolTips)
 
 func addElement():
 	var elementNode: Control = allElements.giveRandomElement()

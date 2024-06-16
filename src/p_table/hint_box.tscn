@@ -3,11 +3,8 @@
 [ext_resource type="Script" path="res://p_table/hint_box.gd" id="1_k62aq"]
 
 [node name="HintBox" type="VBoxContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -81.0
-offset_right = 81.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 26.0
 grow_horizontal = 2
 size_flags_horizontal = 3
@@ -16,11 +13,11 @@ script = ExtResource("1_k62aq")
 
 [node name="InfoGrid" type="GridContainer" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 columns = 2
 
 [node name="Label" type="Label" parent="InfoGrid"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "Selected:"
 horizontal_alignment = 2

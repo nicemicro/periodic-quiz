@@ -5,7 +5,7 @@ extends VBoxContainer
 var hintList: Dictionary = {}
 signal hintOpened(hintName)
 
-func setPenaltyNumbers(newPenaltyNumbers: Dictionary):
+func setPenaltyNumbers(newPenaltyNumbers: Dictionary, toolTips: Dictionary):
 	var revealerScene = load("res://p_table/hint_revealer.tscn")
 	var revealerNode: Control
 	var labelNode: Label
@@ -14,6 +14,9 @@ func setPenaltyNumbers(newPenaltyNumbers: Dictionary):
 		labelNode.text = hintName + ":"
 		labelNode.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		labelNode.add_theme_font_size_override("font_size", 15)
+		if hintName in toolTips:
+			labelNode.tooltip_text = toolTips[hintName]
+			labelNode.mouse_filter = Control.MOUSE_FILTER_PASS
 		infoGrid.add_child(labelNode)
 		revealerNode = revealerScene.instantiate()
 		revealerNode.setPenalty(newPenaltyNumbers[hintName])
