@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7lil0i2q12bx"]
+[gd_scene load_steps=9 format=3 uid="uid://b7lil0i2q12bx"]
 
 [ext_resource type="Theme" uid="uid://cwmvssyycl315" path="res://theme/periodic_table.tres" id="1_axefy"]
 [ext_resource type="Script" path="res://p_table/match_game.gd" id="1_hmqyt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://demxfooudcg4y" path="res://p_table/all_elements.tscn" id="2_02f2v"]
 [ext_resource type="PackedScene" uid="uid://d457mukcsa8n" path="res://p_table/element_place.tscn" id="2_y80xu"]
 [ext_resource type="PackedScene" uid="uid://dkwdswb7kpvdd" path="res://p_table/hint_box.tscn" id="6_d2goi"]
+[ext_resource type="Texture2D" uid="uid://be0uprokb7eat" path="res://arrow.png" id="7_3gexb"]
+[ext_resource type="StyleBox" uid="uid://b24po2t8r8kfi" path="res://theme/tip_container.tres" id="8_1gwxy"]
 
 [node name="MatchGame" type="Control"]
 custom_minimum_size = Vector2(1280, 720)
@@ -23,7 +25,6 @@ script = ExtResource("1_hmqyt")
 [node name="GameStarter" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="AllElements" parent="." instance=ExtResource("2_02f2v")]
 visible = false
@@ -100,7 +101,6 @@ horizontal_alignment = 1
 
 [node name="TimeKeeper" type="Timer" parent="GamePanel/Columns/Rows/ScoreCos/Timer"]
 unique_name_in_owner = true
-autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="GamePanel/Columns/Rows"]
 custom_minimum_size = Vector2(0, 2)
@@ -158,6 +158,278 @@ color = Color(0.482353, 0.482353, 0.482353, 1)
 
 [node name="HintBox" parent="GamePanel/Columns" instance=ExtResource("6_d2goi")]
 layout_mode = 2
+
+[node name="Tips" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tip1" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 426.0
+offset_top = 141.0
+offset_right = 466.0
+offset_bottom = 181.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 311.0
+offset_bottom = 101.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip1/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip1/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "During the game, this is where new elements will show up."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip1/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip1/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip1/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepButton" type="Button" parent="Tips/Tip1/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Tip2" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 586.0
+offset_top = 36.0
+offset_right = 626.0
+offset_bottom = 76.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 311.0
+offset_bottom = 210.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip2/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "When a new element spawns, or an other one is clicked, available hints will appear here.
+Opening a hint will result in deductions. Opened hints will be available also as tooltips when the mouse is over an atom."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepButton" type="Button" parent="Tips/Tip2/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Tip3" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 114.0
+offset_top = 364.0
+offset_right = 154.0
+offset_bottom = 404.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 351.0
+offset_bottom = 173.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip3/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Grab an element, and move it to its place in the periodic table!
+You won't know, if your choice was correct until the  end of the game, and you can always move  elements around, but every move will result in a deduction in points."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip3/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip3/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip3/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepButton" type="Button" parent="Tips/Tip3/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Tip4" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 262.0
+offset_top = 173.0
+offset_right = 302.0
+offset_bottom = 213.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 311.0
+offset_bottom = 127.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip4/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "When unsure, the elements can be moved to one of these slots. Elements moved from these slots will not result in deduction."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip4/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip4/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip4/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepButton" type="Button" parent="Tips/Tip4/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Tip5" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 435.0
+offset_top = 171.0
+offset_right = 475.0
+offset_bottom = 211.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 311.0
+offset_bottom = 115.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip5/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "The game ends once all elements are placed in the periodic table. Then, the score will be calculated and shown."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip5/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip5/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip5/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StepButton" type="Button" parent="Tips/Tip5/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next"
+
+[node name="Tip6" type="TextureRect" parent="Tips"]
+visible = false
+layout_mode = 0
+offset_left = 417.0
+offset_top = 61.0
+offset_right = 457.0
+offset_bottom = 101.0
+texture = ExtResource("7_3gexb")
+
+[node name="PanelContainer" type="PanelContainer" parent="Tips/Tip6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.925
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 33.0
+offset_right = 311.0
+offset_bottom = 103.0
+theme_override_styles/panel = ExtResource("8_1gwxy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tips/Tip6/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tips/Tip6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "As you press the \"Close\" button, the timer will start.
+Good luck!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tips/Tip6/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Tips/Tip6/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[node name="Control" type="Control" parent="Tips/Tip6/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Blocker" type="ColorRect" parent="."]
 visible = false
@@ -252,3 +524,14 @@ text = "0"
 [connection signal="timeout" from="GameStarter" to="." method="startGame"]
 [connection signal="timeout" from="GamePanel/Columns/Rows/ScoreCos/Timer/TimeKeeper" to="." method="_on_time_keeper_timeout"]
 [connection signal="hintOpened" from="GamePanel/Columns/HintBox" to="." method="_on_hint_box_hint_opened"]
+[connection signal="pressed" from="Tips/Tip1/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tips/Tip1/PanelContainer/VBoxContainer/HBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Tips/Tip2/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tips/Tip2/PanelContainer/VBoxContainer/HBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Tips/Tip3/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tips/Tip3/PanelContainer/VBoxContainer/HBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Tips/Tip4/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tips/Tip4/PanelContainer/VBoxContainer/HBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Tips/Tip5/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Tips/Tip5/PanelContainer/VBoxContainer/HBoxContainer/StepButton" to="." method="_on_step_button_pressed"]
+[connection signal="pressed" from="Tips/Tip6/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

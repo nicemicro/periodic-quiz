@@ -9,6 +9,7 @@ extends Control
 @onready var gameBlocker = $Blocker
 @onready var hintBox = $GamePanel/Columns/HintBox
 @onready var gameStarter: Timer = $GameStarter
+@onready var tipContainer = %Tips
 var activeStorage: CenterContainer = null
 var deduction: int = 0
 var hintsRevealed: int = 0
@@ -28,11 +29,13 @@ var hintToolTips: Dictionary = {
 }
 var selectedElement: Container = null
 var startTime: float
+var tiplist: Array
 
 func _ready():
-	startTime = Time.get_unix_time_from_system() + gameStarter.time_left
-	timeLabel.text = str(-int(gameStarter.time_left))
 	pTable.initialize(allElements)
+	for child in tipContainer.get_children():
+		tiplist.append(child)
+	tiplist[0].show()
 
 func startGame():
 	startTime = Time.get_unix_time_from_system()
@@ -133,3 +136,20 @@ func _on_time_keeper_timeout():
 			"%02d" % (int(timePassed) % 60)
 		)
 	timeLabel.text = timeString
+
+
+func _on_close_button_pressed():
+	for child in tiplist:
+		child.hide()
+	tipContainer.hide()
+	gameStarter.start()
+	%TimeKeeper.start()
+	startTime = Time.get_unix_time_from_system() + gameStarter.time_left
+	timeLabel.text = str(-int(gameStarter.time_left))
+
+func _on_step_button_pressed():
+	for index in range(len(tiplist)):
+		if tiplist[index].visible:
+			tiplist[index].hide()
+			tiplist[index+1].show()
+			break
