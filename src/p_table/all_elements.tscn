@@ -1217,7 +1217,7 @@ layout_mode = 2
 [node name="Ac" parent="." instance=ExtResource("1_rggk7")]
 layout_mode = 2
 _symbol = "Ac"
-_relativeAtomicMass = 277.0
+_relativeAtomicMass = 227.0
 _typicalCompound1 = "AcF[sub]3[/sub]"
 _typicalCompound2 = "Ac[sub]2[/sub]S[sub]3[/sub]"
 _weirdCompound = ""
